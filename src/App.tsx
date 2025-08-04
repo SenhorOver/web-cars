@@ -7,6 +7,7 @@ import { Dashboard } from "./pages/dashboard";
 import { New } from "./pages/dashboard/new";
 import { Register } from "./pages/register";
 import { Private } from "./routes/Private";
+import { NotFound } from "./pages/notFound";
 
 export const router = createBrowserRouter([
   {
@@ -46,4 +47,5 @@ export const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  { path: "*", element: <NotFound /> },
 ]);
