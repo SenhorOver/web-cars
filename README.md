@@ -12,13 +12,21 @@ WebCars oferece um ambiente onde possibilita o anúncio de carros, os usuários 
 
 ## Layout mobile
 
-Home (/) + Dashboard (/dashboard -> protected)
+Home (/)
 
-<img src="https://i.ibb.co/ymrgbpYY/Screenshot-from-2025-08-03-22-20-42.png" alt="Screenshot-from-2025-08-03-22-20-42" border="0" /> <img src="https://i.ibb.co/pBYxwb3z/Screenshot-from-2025-08-03-22-20-56.png" alt="Screenshot-from-2025-08-03-22-20-56" border="0" />
+<img src="https://i.ibb.co/ymrgbpYY/Screenshot-from-2025-08-03-22-20-42.png" alt="Screenshot-from-2025-08-03-22-20-42" border="0" /> 
 
-New Car (/dashboard/new -> protected) + Car preview (/car/:id)
+Dashboard (/dashboard -> protected)
 
-<img src="https://i.ibb.co/yn15FpVc/Screenshot-from-2025-08-03-22-20-50.png" alt="Screenshot-from-2025-08-03-22-20-50" border="0" /> <img src="https://i.ibb.co/996sVv4D/Screenshot-from-2025-08-03-22-21-18.png" alt="Screenshot-from-2025-08-03-22-21-18" border="0" />
+<img src="https://i.ibb.co/pBYxwb3z/Screenshot-from-2025-08-03-22-20-56.png" alt="Screenshot-from-2025-08-03-22-20-56" border="0" />
+
+New Car (/dashboard/new -> protected)
+
+<img src="https://i.ibb.co/yn15FpVc/Screenshot-from-2025-08-03-22-20-50.png" alt="Screenshot-from-2025-08-03-22-20-50" border="0" /> 
+
+Car preview (/car/:id)
+
+<img src="https://i.ibb.co/996sVv4D/Screenshot-from-2025-08-03-22-21-18.png" alt="Screenshot-from-2025-08-03-22-21-18" border="0" />
 
 ## Layout web
 
