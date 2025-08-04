@@ -135,16 +135,16 @@ export function New() {
     const currentUid = user.uid;
     const uidImage = uuidV4();
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from("cars-images")
       .upload(`public/${currentUid}/${uidImage}`, image);
 
     if (error) {
       toast.error("Erro ao fazer upload da imagem");
-      console.log("Erro", error);
+      console.log("Erro");
     } else {
       toast.success("Imagem adicionada com sucesso");
-      console.log("Arquivo uploaded", data);
+      console.log("Arquivo uploaded");
     }
 
     const publicUrl = supabase.storage
@@ -165,25 +165,25 @@ export function New() {
     const imagePath = `public/${item.uid}/${item.name}`;
 
     try {
-      const { data, error } = await supabase.storage
+      const { error } = await supabase.storage
         .from("cars-images")
         .remove([imagePath]);
 
       if (error) {
         toast.error("Erro ao deletar imagem");
-        console.log("Erro", error);
+        console.log("Erro");
       } else {
         toast.success("Imagem removida com sucesso");
-        console.log("Arquivo deletado", data);
+        console.log("Arquivo deletado");
       }
 
       const filteredImage = carImages.filter(
         (image) => image.name != item.name,
       );
       setCarImages(filteredImage);
-    } catch (error) {
+    } catch (err) {
       toast.error("Erro desconhecido");
-      console.log("Erro inesperado", error);
+      console.log("Erro inesperado", err);
     }
   }
 

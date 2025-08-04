@@ -61,7 +61,7 @@ export function Dashboard() {
 
           setCars(listCars);
         })
-        .catch((error) => console.log(error));
+        .catch(() => console.log("erro"));
     }
 
     loadCars();
@@ -95,7 +95,6 @@ export function Dashboard() {
 
         if (error) {
           toast.error("Erro ao deletar anúncio");
-          console.log("Erro", error);
         } else {
           console.log("imagem deletada");
         }
