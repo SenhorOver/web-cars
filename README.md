@@ -14,7 +14,7 @@ WebCars oferece um ambiente onde possibilita o anúncio de carros, os usuários 
 
 Home (/)
 
-<img src="https://i.ibb.co/ymrgbpYY/Screenshot-from-2025-08-03-22-20-42.png" alt="Screenshot-from-2025-08-03-22-20-42" border="0" /> 
+<img src="https://i.ibb.co/ymrgbpYY/Screenshot-from-2025-08-03-22-20-42.png" alt="Screenshot-from-2025-08-03-22-20-42" border="0" />
 
 Dashboard (/dashboard -> protected)
 
@@ -22,7 +22,7 @@ Dashboard (/dashboard -> protected)
 
 New Car (/dashboard/new -> protected)
 
-<img src="https://i.ibb.co/yn15FpVc/Screenshot-from-2025-08-03-22-20-50.png" alt="Screenshot-from-2025-08-03-22-20-50" border="0" /> 
+<img src="https://i.ibb.co/yn15FpVc/Screenshot-from-2025-08-03-22-20-50.png" alt="Screenshot-from-2025-08-03-22-20-50" border="0" />
 
 Car preview (/car/:id)
 
@@ -73,6 +73,8 @@ Entre outras páginas...
 
 ## Front end web
 
+IMPORTANTE: Não será possível acessar o Backend Firebase e Supabase, caso queira ver a aplicação funcionando, é possível acessar via web: [link](https://web-cars-ruddy.vercel.app/)
+
 Pré-requisitos: npm / yarn
 
 ```bash
@@ -87,6 +89,18 @@ npm install
 
 # executar o projeto (desenvolvimento)
 npm run dev
+```
+
+### Outro modo via Docker:
+
+Pré-requisitos: Docker engine
+
+```bash
+# Criar imagem docker (definir caminho onde o Dockerfile está caso necessário)
+docker build -t web-cars:latest .
+
+# Criar container a partir da imagem
+docker run -d -p 8080:80 --name web-cars web-cars:latest
 ```
 
 # Autor
