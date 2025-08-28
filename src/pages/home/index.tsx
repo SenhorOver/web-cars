@@ -119,7 +119,7 @@ export function Home() {
         Carros novos e usados em todo o Brasil
       </h1>
 
-      <main className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <main className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pb-10">
         {cars.map((car) => (
           <Link key={car.id} to={`/car/${car.id}`}>
             <section className="w-full bg-white rounded-lg">
@@ -130,7 +130,7 @@ export function Home() {
                 }}
               ></div>
               <img
-                className="w-full rounded-lg mb-2 hover:scale-105 transition-all md:max-h-72 lg:h-72"
+                className="w-full rounded-lg mb-2 hover:scale-105 transition-all sm:object-cover sm:h-72 md:max-h-72 lg:h-72"
                 src={car.images[0].url}
                 style={{
                   display: loadImages.includes(car.id) ? "block" : "none",
