@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import z from "zod";
 import { Input } from "../../../components/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { db } from "../../../services/firebaseConnection";
 import { addDoc, collection } from "firebase/firestore";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -58,6 +58,49 @@ export function New() {
   });
 
   const [carImages, setCarImages] = useState<ImageItemProps[]>([]);
+  const latestImagesRef = useRef<ImageItemProps[]>([]);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (latestImagesRef.current.length > 0) {
+        event.preventDefault();
+        event.returnValue = "";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Sempre mantém a ref atualizada com o valor mais recente
+    latestImagesRef.current = carImages;
+  }, [carImages]);
+
+  useEffect(() => {
+    return () => {
+      if (latestImagesRef.current.length > 0) {
+        deleteUploadedImages(latestImagesRef.current);
+      }
+    };
+  }, []);
+
+  async function deleteUploadedImages(images: ImageItemProps[]) {
+    for (const image of images) {
+      const imagePath = `public/${image.uid}/${image.name}`;
+      const { error } = await supabase.storage
+        .from("cars-images") // ajuste para o nome real do seu bucket
+        .remove([imagePath]);
+
+      console.log("imagem deletada com sucesso");
+      if (error) {
+        console.error("Erro ao deletar imagem:", image.name, error.message);
+      }
+    }
+  }
 
   // Forma utilizando STORAGE DO GOOGLE
   /*
